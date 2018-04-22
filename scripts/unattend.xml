@@ -12,15 +12,24 @@
         -->
     </settings>
     <settings pass="oobeSystem">
+        <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <InputLocale>en-US</InputLocale>
+            <SystemLocale>en-NZ</SystemLocale>
+            <UILanguage>en-US</UILanguage>
+            <UserLocale>en-NZ</UserLocale>
+        </component>    
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <OOBE>
                 <HideEULAPage>true</HideEULAPage>
-                <ProtectYourPC>3</ProtectYourPC>
-                <NetworkLocation>Work</NetworkLocation>
+                <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+                <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
                 <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+                <NetworkLocation>Work</NetworkLocation>
+                <ProtectYourPC>1</ProtectYourPC>
                 <SkipUserOOBE>true</SkipUserOOBE>
                 <SkipMachineOOBE>true</SkipMachineOOBE>
             </OOBE>
+            <TimeZone>New Zealand Standard Time</TimeZone>
             <AutoLogon>
                 <Password>
                     <Value>vagrant</Value>
@@ -29,13 +38,16 @@
                 <Enabled>true</Enabled>
                 <LogonCount>1</LogonCount>
                 <Username>vagrant</Username>
-            </AutoLogon>
+            </AutoLogon>            
+			<FirstLogonCommands>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File C:\Windows\Temp\set-guestnamefromvm.ps1</CommandLine>
+                    <Description>Rename computer to match VM name</Description>
+                    <Order>99</Order>
+                </SynchronousCommand>
+			</FirstLogonCommands>                         
         </component>
     </settings>
     <settings pass="specialize">
-        <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <ComputerName>vagrant</ComputerName>
-            <CopyProfile>false</CopyProfile>
-        </component>
     </settings>
 </unattend>

@@ -28,7 +28,7 @@
       "vmx_remove_ethernet_interfaces": true,
       "vnc_port_max": 5980,
       "vnc_port_min": 5900,
-      "winrm_password": "vagrant",
+      "winrm_password": "SuperSecret999",
       "winrm_timeout": "6h",
       "winrm_username": "vagrant"
     },
@@ -65,7 +65,7 @@
           "2"
         ]
       ],
-      "winrm_password": "vagrant",
+      "winrm_password": "SuperSecret999",
       "winrm_timeout": "6h",
       "winrm_username": "vagrant"
     }
@@ -85,6 +85,7 @@
         "./scripts/enable-rdp.bat",
         "./scripts/compile-dotnet-assemblies.bat",
         "./scripts/disable-auto-logon.bat",
+        "./scripts/wait-for-tiworker.ps1",        
         "./scripts/compact.bat"
       ],
       "type": "windows-shell"
