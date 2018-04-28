@@ -27,7 +27,7 @@
       "shutdown_command": "a:/sysprep.bat",
       "switch_name": "{{user `hyperv_switchname`}}",
       "type": "hyperv-iso",
-      "vm_name": "WindowsServer2016",
+      "vm_name": "WindowsServer2019",
       "winrm_password": "vagrant",
       "winrm_timeout": "{{user `winrm_timeout`}}",
       "winrm_username": "vagrant"
@@ -55,7 +55,7 @@
       "shutdown_command": "a:/sysprep.bat",
       "type": "vmware-iso",
       "version": 12,
-      "vm_name": "WindowsServer2016",
+      "vm_name": "WindowsServer2019",
       "vmx_data": {
         "RemoteDisplay.vnc.enabled": "false",
         "RemoteDisplay.vnc.port": "5900",
@@ -106,7 +106,7 @@
           "2"
         ]
       ],
-      "vm_name": "WindowsServer2016",
+      "vm_name": "WindowsServer2019",
       "winrm_password": "vagrant",
       "winrm_timeout": "{{user `winrm_timeout`}}",
       "winrm_username": "vagrant"
@@ -115,7 +115,7 @@
   "post-processors": [
     {
       "keep_input_artifact": false,
-      "output": "windows_2016_{{.Provider}}.box",
+      "output": "windows_2019_{{.Provider}}.box",
       "type": "vagrant",
       "vagrantfile_template": "vagrantfile-windows_2016.template"
     }
@@ -125,8 +125,8 @@
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "scripts": [
         "./scripts/vm-guest-tools.bat",
-        "./scripts/enable-rdp.bat",
-        "./scripts/compile-dotnet-assemblies.bat"        
+        "./scripts/enable-rdp.bat"
+		"./scripts/compile-dotnet-assemblies.bat"
       ],
       "type": "windows-shell"
     },
@@ -140,23 +140,29 @@
       "restart_timeout": "{{user `restart_timeout`}}",
       "type": "windows-restart"
     },
+    {
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "scripts": [
+        "./scripts/pin-powershell.bat",
+        "./scripts/set-winrm-automatic.bat",
         "./scripts/uac-enable.bat",
+        "./scripts/compile-dotnet-assemblies.bat",
+        "./scripts/dis-updates.bat",
         "./scripts/compact.bat"
       ],
-      "type": "windows-shell"    
-    } 
+      "type": "windows-shell"
+    }
   ],
   "variables": {
-    "autounattend": "./answer_files/2016/Autounattend.xml",
+    "autounattend": "./answer_files/2019/Autounattend.xml",
     "disk_size": "61440",
     "disk_type_id": "1",
     "headless": "false",
     "hyperv_switchname": "{{env `hyperv_switchname`}}",
-    "iso_checksum": "70721288BBCDFE3239D8F8C0FAE55F1F",
-    "iso_checksum_type": "md5",
-    "iso_url": "http://care.dlservice.microsoft.com/dl/download/1/4/9/149D5452-9B29-4274-B6B3-5361DBDA30BC/14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO",
+    "iso_checksum": "ab5a4980d4a7b8e9028124aef7b2a01ed85b3e32762d8bf15ed21b991f63db6f",
+    "iso_checksum_type": "sha256",
+    "iso_url": "https://software-download.microsoft.com/db/Windows_InsiderPreview_Server_vNext_en-us_17639.iso",
+    "manually_download_iso_from": "https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver",
     "restart_timeout": "5m",
     "winrm_timeout": "6h"
   }

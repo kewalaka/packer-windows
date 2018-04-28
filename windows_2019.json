@@ -15,6 +15,8 @@
         "./scripts/microsoft-updates.bat",
         "./scripts/unattend.xml",
         "./scripts/sysprep.bat",
+        "./scripts/set-guestnamefromvm.ps1",
+        "./scripts/wait-for-tiworker.ps1",
         "./scripts/win-updates.ps1"
       ],
       "guest_additions_mode": "disable",
@@ -123,13 +125,14 @@
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "scripts": [
         "./scripts/vm-guest-tools.bat",
-        "./scripts/enable-rdp.bat"
+        "./scripts/enable-rdp.bat",
+		"./scripts/compile-dotnet-assemblies.bat"
       ],
       "type": "windows-shell"
     },
     {
       "scripts": [
-        "./scripts/debloat-windows.ps1"
+        "./scripts/wait-for-tiworker.ps1"
       ],
       "type": "powershell"
     },
@@ -161,7 +164,7 @@
     "iso_url": "https://software-download.microsoft.com/db/Windows_InsiderPreview_Server_vNext_en-us_17639.iso",
     "manually_download_iso_from": "https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver",
     "restart_timeout": "5m",
-    "winrm_timeout": "2h"
+    "winrm_timeout": "6h"
   }
 }
 
