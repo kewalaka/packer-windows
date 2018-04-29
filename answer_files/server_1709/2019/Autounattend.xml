@@ -36,7 +36,7 @@
                         </ModifyPartition>
                         <ModifyPartition wcm:action="add">
                             <Format>NTFS</Format>
-                            <Label>Windows 2012 R2</Label>
+                            <Label>Windows 2019</Label>
                             <Letter>C</Letter>
                             <Order>2</Order>
                             <PartitionID>2</PartitionID>
@@ -51,7 +51,7 @@
                     <InstallFrom>
                         <MetaData wcm:action="add">
                             <Key>/IMAGE/NAME </Key>
-                            <Value>Windows Server 2012 R2 SERVERDATACENTER</Value>
+                            <Value>Windows Server 2016 SERVERDATACENTER</Value>
                         </MetaData>
                     </InstallFrom>
                     <InstallTo>
@@ -61,11 +61,11 @@
                 </OSImage>
             </ImageInstall>
             <UserData>
-                <!-- Product Key from http://technet.microsoft.com/en-us/library/jj612867.aspx -->
+                <!-- Product Key from https://www.microsoft.com/de-de/evalcenter/evaluate-windows-server-technical-preview?i=1 -->
                 <ProductKey>
                     <!-- Do not uncomment the Key element if you are using trial ISOs -->
                     <!-- You must uncomment the Key element (and optionally insert your own key) if you are using retail or volume license ISOs -->
-                    <!--<Key>D2N9P-3P6X9-2R39C-7RTCD-MDVJX</Key>-->
+                    <Key>6XBNX-4JQGW-QX6QG-74P76-72V67</Key>
                     <WillShowUI>OnError</WillShowUI>
                 </ProductKey>
                 <AcceptEula>true</AcceptEula>
@@ -79,9 +79,9 @@
             <OEMInformation>
                 <HelpCustomized>false</HelpCustomized>
             </OEMInformation>
-            <ComputerName>vagrant-2012-r2</ComputerName>
-            <TimeZone>W. Europe Standard Time</TimeZone>
-            <RegisteredOwner />
+            <ComputerName>vagrant-2019</ComputerName>
+            <TimeZone>Pacific Standard Time</TimeZone>
+            <RegisteredOwner/>
         </component>
         <component name="Microsoft-Windows-ServerManager-SvrMgrNc" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <DoNotOpenServerManagerAtLogon>true</DoNotOpenServerManagerAtLogon>
@@ -187,7 +187,7 @@
                     <Description>Enable WinRM</Description>
                     <Order>99</Order>
                 </SynchronousCommand>
-               
+                -->
                 <!-- END WITHOUT WINDOWS UPDATES -->
                 <!-- WITH WINDOWS UPDATES -->
                 <SynchronousCommand wcm:action="add">
@@ -196,11 +196,17 @@
                     <Description>Enable Microsoft Updates</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
+                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\disable-screensaver.ps1</CommandLine>
+                    <Description>Disable Screensaver</Description>
+                    <Order>99</Order>
+                    <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\win-updates.ps1</CommandLine>
                     <Description>Install Windows Updates</Description>
                     <Order>100</Order>
                     <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand> -->
+                </SynchronousCommand>
                 <!-- END WITH WINDOWS UPDATES -->
             </FirstLogonCommands>
             <OOBE>
@@ -238,5 +244,5 @@
             <EnableLUA>false</EnableLUA>
         </component>
     </settings>
-    <cpi:offlineImage cpi:source="wim:c:/wim/install.wim#Windows Server 2012 R2 SERVERSERVERDATACENTER" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
+    <cpi:offlineImage cpi:source="wim:c:/wim/install.wim#Windows Server 2012 R2 SERVERSTANDARD" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>
