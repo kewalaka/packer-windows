@@ -6,6 +6,7 @@
 #       windows_10.json
 
 # bigger disk for hyperv
-packer build --only=vmware-iso `
+packer build --only=hyperv-iso `
        --var disk_size=136400 `
+       --var iso_url='F:\ISOs\Win10-1709.iso' `
        windows_10.json

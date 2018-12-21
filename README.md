@@ -20,23 +20,22 @@ Some of my enhancements are:
 
 ### Packer Version
 
-[Packer](https://github.com/mitchellh/packer/blob/master/CHANGELOG.md) `1.1.3` is recommended.
+[Packer](https://github.com/mitchellh/packer/blob/master/CHANGELOG.md) `1.1.2`
+or greater is recommended.
 
 ### Windows Versions
 
 The following Windows versions are known to work (built with VMware Fusion Pro
-10.1.1):
+10.0.1):
 
 * Windows 10
   * Windows 10 1709
   * Windows 10 Insider
 * Windows Server 2016 Desktop
-* Windows Server 2019 Desktop (Insider Preview)
 * Windows Server Core
   * Windows Server 2016 without and with Docker
   * Windows Server 1709 without and with Docker
-  * Windows Server InsiderPreview Semi-Annual without and with Docker
-  * Windows Server 2019 Core(Insider Preview)
+  * Windows Server Insider without and with Docker
 
 You may find other packer template files, but older versions of Windows doesn't
 work so nice with a Retina display.
@@ -63,6 +62,20 @@ ImageIndex       : 2
 ImageName        : Windows Server 2016 SERVERDATACENTERACORE
 ImageDescription : Windows Server 2016 SERVERDATACENTERACORE
 ImageSize        : 7,373,846,520 bytes
+```
+
+```
+<!--
+    C:\isos> Mount-DiskImage -ImagePath C:\ISOs\WindowsServer2016.ISO
+    C:\isos> (Get-WindowsImage -ImagePath D:\sources\install.wim) | select imagename,imageindex
+
+    ImageName                                                      ImageIndex
+    ---------                                                      ----------
+    Windows Server 2016 Standard Evaluation                                 1
+    Windows Server 2016 Standard Evaluation (Desktop Experience)            2
+    Windows Server 2016 Datacenter Evaluation                               3
+    Windows Server 2016 Datacenter Evaluation (Desktop Experience)          4
+-->
 ```
 
 ### Product Keys

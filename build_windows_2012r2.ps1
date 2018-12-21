@@ -7,5 +7,5 @@
 
 # bigger disk for hyperv
 packer build --only=hyperv-iso `
-       --var iso_url='C:\ISOs\WindowsServer2012R2.ISO' `
+       --var iso_url='F:\ISOs\WindowsServer2012R2.ISO' `
        windows_2012_r2.json

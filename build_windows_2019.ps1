@@ -6,7 +6,7 @@
 #       windows_10.json
 
 # bigger disk for hyperv
-packer build --only=hyperv-iso `
-       --var iso_url='F:\ISOs\Windows_InsiderPreview_Server_17650.iso' `
-       windows_2016.json
+packer build -force --only=hyperv-iso `
+       --var iso_url='F:\ISOs\Windows_InsiderPreview_Server_vNext_en-us_17650.iso' `
+       windows_2019.json 
 #!/bin/bash
