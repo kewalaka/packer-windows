@@ -54,15 +54,14 @@
                             C:\isos> (Get-WindowsImage -ImagePath D:\sources\install.wim) | select imagename,imageindex
 
                             ImageName                                                      ImageIndex
-                            ---------                                                      ----------
                             Windows Server 2016 Standard Evaluation                                 1
                             Windows Server 2016 Standard Evaluation (Desktop Experience)            2
                             Windows Server 2016 Datacenter Evaluation                               3
-                            Windows Server 2016 Datacenter Evaluation (Desktop Experience)          4
-                        -->                    
+                            Windows Server 2016 Datacenter Evaluation (Desktop Experience)          4 
+                        --> 
                         <MetaData wcm:action="add">
-                            <Key>/IMAGE/INDEX</Key>
-                            <Value>3</Value>
+                            <Key>/IMAGE/NAME</Key>
+                            <Value>Windows Server 2016 SERVERSTANDARDCORE</Value>
                         </MetaData>
                     </InstallFrom>
                     <InstallTo>
