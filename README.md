@@ -14,8 +14,8 @@ repo.
 
 Some of my enhancements are:
 
-* Support of fullscreen Retina display on a MacBook Pro.
-* WinRM, no more OpenSSH
+- Support of fullscreen Retina display on a MacBook Pro.
+- WinRM, no more OpenSSH
 
 ### Packer Version
 
@@ -26,16 +26,16 @@ Some of my enhancements are:
 The following Windows versions are known to work (built with VMware Fusion Pro
 11.0.2):
 
-* Windows 10
-  * Windows 10 1809 -> Vagrant Cloud box [StefanScherer/windows_10](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
-  * Windows 10 Insider
-* Windows Server 2016 Desktop -> Vagrant Cloud box [StefanScherer/windows_2016](https://app.vagrantup.com/StefanScherer/boxes/windows_2016)
-* Windows Server 2019 Desktop -> Vagrant Cloud box [StefanScherer/windows_2019](https://app.vagrantup.com/StefanScherer/boxes/windows_2019)
-* Windows Server Core
-  * Windows Server 2016 without and with Docker -> Vagrant Cloud box [StefanScherer/windows_2016_docker](https://app.vagrantup.com/StefanScherer/boxes/windows_2016_docker)
-  * Windows Server 2019 without and with Docker -> Vagrant Cloud box [StefanScherer/windows_2019_docker](https://app.vagrantup.com/StefanScherer/boxes/windows_2019_docker)
-  * Windows Server 1709, 1803, 1809, and 1903 all without and with Docker
-  * Windows Server InsiderPreview Semi-Annual without and with Docker
+- Windows 10
+  - Windows 10 1809 -> Vagrant Cloud box [StefanScherer/windows_10](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
+  - Windows 10 Insider
+- Windows Server 2016 Desktop -> Vagrant Cloud box [StefanScherer/windows_2016](https://app.vagrantup.com/StefanScherer/boxes/windows_2016)
+- Windows Server 2019 Desktop -> Vagrant Cloud box [StefanScherer/windows_2019](https://app.vagrantup.com/StefanScherer/boxes/windows_2019)
+- Windows Server Core
+  - Windows Server 2016 without and with Docker -> Vagrant Cloud box [StefanScherer/windows_2016_docker](https://app.vagrantup.com/StefanScherer/boxes/windows_2016_docker)
+  - Windows Server 2019 without and with Docker -> Vagrant Cloud box [StefanScherer/windows_2019_docker](https://app.vagrantup.com/StefanScherer/boxes/windows_2019_docker)
+  - Windows Server 1709, 1803, 1809, and 1903 all without and with Docker
+  - Windows Server InsiderPreview Semi-Annual without and with Docker
 
 You may find other packer template files, but older versions of Windows doesn't
 work so nice with a Retina display.
@@ -54,8 +54,8 @@ PS C:\> Mount-DiskImage -ImagePath C:\iso\Windows_InsiderPreview_Server_2_16237.
 PS C:\> Get-WindowsImage -ImagePath e:\sources\install.wim
 
 ImageIndex       : 1
-ImageName        : Windows Server 2016 SERVERSTANDARDACORE
-ImageDescription : Windows Server 2016 SERVERSTANDARDACORE
+ImageName        : Windows Server 2016 SERVERDATACENTERACORE
+ImageDescription : Windows Server 2016 SERVERDATACENTERACORE
 ImageSize        : 7,341,507,794 bytes
 
 ImageIndex       : 2
@@ -71,8 +71,8 @@ The `Autounattend.xml` files are configured to work correctly with trial ISOs
 `packer build`). If you would like to use retail or volume license ISOs, you
 need to update the `UserData`>`ProductKey` element as follows:
 
-* Uncomment the `<Key>...</Key>` element
-* Insert your product key into the `Key` element
+- Uncomment the `<Key>...</Key>` element
+- Insert your product key into the `Key` element
 
 If you are going to configure your VM as a KMS client, you can use the product
 keys at http://technet.microsoft.com/en-us/library/jj612867.aspx. These are the
@@ -83,8 +83,8 @@ default values used in the `Key` element.
 If you have already downloaded the ISOs or would like to override them, set
 these additional variables:
 
-* iso_url - path to existing ISO
-* iso_checksum - md5sum of existing ISO (if different)
+- iso_url - path to existing ISO
+- iso_checksum - md5sum of existing ISO (if different)
 
 ```
 packer build -var 'iso_url=./server2016.iso' .\windows_2016.json
@@ -153,9 +153,9 @@ You then can use this box with Vagrant to spin up a Hyper-V VM.
 
 Some of these images use Hyper-V "Generation 2" VMs to enable the latest features and faster booting. However, an extra manual step is needed to put the needed files into ISOs because Gen2 VMs don't support virtual floppy disks.
 
-* `windows_server_insider.json`
-* `windows_server_insider_docker.json`
-* `windows_10_insider.json`
+- `windows_server_insider.json`
+- `windows_server_insider_docker.json`
+- `windows_10_insider.json`
 
 Before running `packer build`, be sure to run `./make_unattend_iso.ps1` first. Otherwise the build will fail on a missing ISO file
 
