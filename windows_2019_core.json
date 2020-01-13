@@ -3,6 +3,7 @@
     {
       "boot_wait": "0s",
       "communicator": "winrm",
+      "configuration_version": "8.0",
       "cpus": 2,
       "disk_size": "{{user `disk_size`}}",
       "enable_secure_boot": true,
@@ -93,7 +94,7 @@
       "keep_input_artifact": false,
       "output": "windows_2019_core_{{.Provider}}.box",
       "type": "vagrant",
-      "vagrantfile_template": "vagrantfile-windows_2016_core.template"
+      "vagrantfile_template": "vagrantfile-windows_2019_core.template"
     }
   ],
   "provisioners": [
