@@ -19,9 +19,14 @@
       ],
       "guest_additions_mode": "disable",
       "iso_checksum": "{{user `iso_checksum`}}",
+<<<<<<< HEAD
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_url": "{{user `iso_url`}}",
       "memory": 2048,
+=======
+      "iso_url": "{{user `iso_url`}}",
+      "memory": "{{user `memory`}}",
+>>>>>>> pr/8
       "shutdown_command": "a:/sysprep.bat",
       "switch_name": "{{user `hyperv_switchname`}}",
       "type": "hyperv-iso",
@@ -50,9 +55,14 @@
       "guest_os_type": "windows9srv-64",
       "headless": "{{user `headless`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
+<<<<<<< HEAD
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_url": "{{user `iso_url`}}",
       "memory": 2048,
+=======
+      "iso_url": "{{user `iso_url`}}",
+      "memory": "{{user `memory`}}",
+>>>>>>> pr/8
       "shutdown_command": "a:/sysprep.bat",
       "type": "vmware-iso",
       "version": 14,
@@ -87,9 +97,14 @@
       "guest_os_type": "Windows2016_64",
       "headless": "{{user `headless`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
+<<<<<<< HEAD
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_url": "{{user `iso_url`}}",
       "memory": 2048,
+=======
+      "iso_url": "{{user `iso_url`}}",
+      "memory": "{{user `memory`}}",
+>>>>>>> pr/8
       "shutdown_command": "a:/sysprep.bat",
       "type": "virtualbox-iso",
       "vm_name": "HyperVServer2019",
@@ -141,10 +156,17 @@
     "autounattend": "./answer_files/2019_hyperv/Autounattend.xml",
     "disk_size": "61440",
     "disk_type_id": "1",
+<<<<<<< HEAD
     "headless": "false",
     "hyperv_switchname": "{{env `hyperv_switchname`}}",
     "iso_checksum": "cb28984af65ba1085cd6ade5fdd3d9c75efe7618846513f9ad44f1397a409f85",
     "iso_checksum_type": "sha256",
+=======
+    "memory": "2048",
+    "headless": "false",
+    "hyperv_switchname": "{{env `hyperv_switchname`}}",
+    "iso_checksum": "sha256:cb28984af65ba1085cd6ade5fdd3d9c75efe7618846513f9ad44f1397a409f85",
+>>>>>>> pr/8
     "iso_url": "https://software-download.microsoft.com/download/pr/17763.557.190612-0019.rs5_release_svc_refresh_SERVERHYPERCORE_OEM_x64FRE_en-us.iso",
     "manually_download_iso_from": "https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019",
     "restart_timeout": "5m",
