@@ -161,7 +161,7 @@
     "memory": "2048",
     "docker_images": "mcr.microsoft.com/windows/servercore:1803 mcr.microsoft.com/windows/nanoserver:1803",
     "docker_provider": "ee",
-    "docker_version": "19.03.11",
+    "docker_version": "19.03.12",
     "headless": "false",
     "iso_checksum": "sha256:1f396b448ae0a68e5a2f694b0afabb61498e20a5df38c874aacb4e940a661b61",
     "iso_url": "https://download.my.visualstudio.com/db/en_windows_server_version_1803_x64_dvd_12063476.iso",

@@ -108,13 +108,13 @@
     {
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "scripts": [
-        "./scripts/vm-guest-tools.bat",
         "./scripts/enable-rdp.bat"
       ],
       "type": "windows-shell"
     },
     {
       "scripts": [
+        "./scripts/vm-guest-tools.ps1",
         "./scripts/docker/2016/install-containers-feature.ps1",
         "./scripts/docker/set-winrm-delayed-automatic.ps1"
       ],
@@ -161,7 +161,7 @@
     "memory": "2048",
     "docker_images": "mcr.microsoft.com/windows/nanoserver:1809 mcr.microsoft.com/windows/servercore:ltsc2019 mcr.microsoft.com/windows/servercore:1809 mcr.microsoft.com/windows:1809",
     "docker_provider": "ee",
-    "docker_version": "19.03.11",
+    "docker_version": "19.03.12",
     "headless": "false",
     "iso_checksum": "sha256:af1edc51f119c39d4eb56bcd9500d1f5ae57c0fbdf6c90ee4ecb535fe82ff0d6",
     "iso_url": "https://download.my.visualstudio.com/db/en_windows_server_version_1809_x64_dvd_92d11ba1.iso",

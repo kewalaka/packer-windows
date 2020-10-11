@@ -108,13 +108,13 @@
     {
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "scripts": [
-        "./scripts/vm-guest-tools.bat",
         "./scripts/enable-rdp.bat"
       ],
       "type": "windows-shell"
     },
     {
       "scripts": [
+        "./scripts/vm-guest-tools.ps1",
         "./scripts/docker/2016/install-containers-feature.ps1",
         "./scripts/docker/set-winrm-delayed-automatic.ps1"
       ],
@@ -161,7 +161,7 @@
     "memory": "2048",
     "docker_images": "",
     "docker_provider": "ee",
-    "docker_version": "19.03.11",
+    "docker_version": "19.03.12",
     "headless": "false",
     "iso_checksum": "sha256:F00082EF6BA6FD7A5E99EF9C01958ABD9D6702D7AAD34262E109989E5D9D0027",
     "iso_url": "https://download.my.visualstudio.com/db/en_windows_server_version_1903_updated_nov_2019_x64_dvd_78832616.iso",

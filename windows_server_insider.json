@@ -37,7 +37,6 @@
       "disk_size": "{{user `disk_size`}}",
       "disk_type_id": "{{user `disk_type_id`}}",
       "floppy_files": [
-        "{{user `autounattend`}}",
         "./scripts/disable-winrm.ps1",
         "./scripts/enable-winrm.ps1"
       ],
@@ -102,10 +101,15 @@
     {
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "scripts": [
-        "./scripts/vm-guest-tools.bat",
         "./scripts/enable-rdp.bat"
       ],
       "type": "windows-shell"
+    },
+    {
+      "scripts": [
+        "./scripts/vm-guest-tools.ps1"
+      ],
+      "type": "powershell"
     },
     {
       "restart_timeout": "{{user `restart_timeout`}}",
@@ -127,8 +131,8 @@
     "disk_type_id": "1",
     "memory": "2048",
     "headless": "false",
-    "iso_checksum": "sha256:9091bd7f18acc067140511c507ddd9c34f3a110126308aa998b18f16c9ea61f7",
-    "iso_url": "https://software-download.microsoft.com/sg/Windows_InsiderPreview_Server_en-us_19035.iso",
+    "iso_checksum": "sha256:72e950c22f5db8ca4448d8eb277cdc8236901fad3f0900f7a7564cffa0306a78",
+    "iso_url": "https://software-download.microsoft.com/db/Windows_InsiderPreview_Server_vNext_en-us_20201.iso",
     "manually_download_iso_from": "https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver",
     "restart_timeout": "5m",
     "vhv_enable": "false",
