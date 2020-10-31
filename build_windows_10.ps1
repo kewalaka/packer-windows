@@ -5,12 +5,21 @@
 #       --var autounattend=./tmp/10/Autounattend.xml `
 #       windows_10.json
 
-# 1903
+# 20H2
 packer build --only=hyperv-iso `
   --var disk_size=136400 `
-  --var iso_url=D:/ISOs/WindowsClient/10/1903/18362.30.190401-1528.19h1_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso `
-  --var iso_checksum=ab4862ba7d1644c27f27516d24cb21e6b39234eb3301e5f1fb365a78b22f79b3 `
+  --var iso_url=C:\ISOs\WindowsClient\10\20H2\19042.508.200927-1902.20h2_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso `
+  --var iso_checksum=574f00380ead9e4b53921c33bf348b5a2fa976ffad1d5fa20466ddf7f0258964 `
   windows_10.json
+
+
+
+# 1903
+# packer build --only=hyperv-iso `
+#   --var disk_size=136400 `
+#   --var iso_url=D:/ISOs/WindowsClient/10/1903/18362.30.190401-1528.19h1_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso `
+#   --var iso_checksum=ab4862ba7d1644c27f27516d24cb21e6b39234eb3301e5f1fb365a78b22f79b3 `
+#   windows_10.json
 
 
 # # 1809
